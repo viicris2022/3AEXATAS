@@ -74,6 +74,8 @@ font-family: 'Chakra Petch', sans-serif;
   
 .abas-textos{
     background-color: var(--texto-fundo);
+  padding: 40 px;
+  border-radius: 0 0 40 px 40 px;
 }
 
 
