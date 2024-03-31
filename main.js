@@ -71,3 +71,4 @@ function comecaCronometro() {
 }
 
 comecaCronometro();
+
