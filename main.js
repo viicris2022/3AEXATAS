@@ -1,3 +1,4 @@
+
 const botoes = document.querySelectorAll(".botao");
 const textos = document.querySelectorAll(".aba-conteudo");
 
@@ -35,9 +36,9 @@ function calculaTempo(tempoObjetivo) {
   horas %= 24;
 
   if (tempoFinal > 0) {
-    return dias + " dias " + horas + " horas " + minutos + " minutos " + segundos + " segundos";
+    return [dias,horas,minutos,segundos];
   } else {
-    return "Prazo Finalizado";
+    return [0,0,0,0];
   }
 }
 
@@ -56,12 +57,23 @@ setInterval(() => {
 }, 1000);
 
 function atualizaCronometro() {
+    function atualizaCronometro()
+        document.getElementById("dias0").textContent = calculaTempo(tempos[1])[0];
+        document.getElementById("horas0").textContent = calculaTempo(tempos[1])[1];
+        document.getElementById("min0").textContent = calculaTempo(tempos[1])[2];
+        document.getElementById("seg0").textContent = calculaTempo(tempos[1])[3];
+    
+        for (let i=0; i<contadores.length;i++){
+           // contadores[i].textContent = calculaTempo(tempos[i]);   
+        }
+    
+    calculaTempo(tempos[0]);
   for (let i = 0; i < tempos.length; i++) {
     temposRestantes[i] = calculaTempo(tempos[i]);
   }
 
   for (let i = 0; i < contadores.length; i++) {
-    contadores[i].textContent = temposRestantes[i];
+    // contadores[i].textContent = temposRestantes[i];
   }
 }
 
@@ -71,4 +83,3 @@ function comecaCronometro() {
 }
 
 comecaCronometro();
-
