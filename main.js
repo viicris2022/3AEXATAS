@@ -1,4 +1,5 @@
 
+
 const botoes = document.querySelectorAll(".botao");
 const textos = document.querySelectorAll(".aba-conteudo");
 
@@ -56,16 +57,17 @@ setInterval(() => {
   }
 }, 1000);
 
+
 function atualizaCronometro() {
-    function atualizaCronometro()
-        document.getElementById("dias0").textContent = calculaTempo(tempos[1])[0];
-        document.getElementById("horas0").textContent = calculaTempo(tempos[1])[1];
-        document.getElementById("min0").textContent = calculaTempo(tempos[1])[2];
-        document.getElementById("seg0").textContent = calculaTempo(tempos[1])[3];
-    
-        for (let i=0; i<contadores.length;i++){
-           // contadores[i].textContent = calculaTempo(tempos[i]);   
-        }
+  for (let i = 0; i < contadores.length; i++) {
+    // Atualiza o conteúdo dos elementos `span` dentro do contador
+    document.getElementById("dias" + i).textContent = temposRestantes[i][0];
+    document.getElementById("horas" + i).textContent = temposRestantes[i][1];
+    document.getElementById("min" + i).textContent = temposRestantes[i][2];
+    document.getElementById("seg" + i).textContent = temposRestantes[i][3];
+  }
+}
+
     
     calculaTempo(tempos[0]);
   for (let i = 0; i < tempos.length; i++) {
