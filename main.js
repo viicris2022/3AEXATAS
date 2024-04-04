@@ -1,5 +1,3 @@
-
-
 const botoes = document.querySelectorAll(".botao");
 const textos = document.querySelectorAll(".aba-conteudo");
 
@@ -37,28 +35,19 @@ function calculaTempo(tempoObjetivo) {
   horas %= 24;
 
   if (tempoFinal > 0) {
-    return [dias,horas,minutos,segundos];
+    return [dias, horas, minutos, segundos];
   } else {
-    return [0,0,0,0];
+    return [0, 0, 0, 0];
   }
 }
-
-// Armazenar resultados da função `calculaTempo`
-const temposRestantes = [];
-
-for (let i = 0; i < tempos.length; i++) {
-  temposRestantes.push(calculaTempo(tempos[i]));
-}
-
-// Atualizar o contador a cada segundo
-setInterval(() => {
-  for (let i = 0; i < contadores.length; i++) {
-    contadores[i].textContent = temposRestantes[i];
-  }
-}, 1000);
-
 
 function atualizaCronometro() {
+  const temposRestantes = [];
+
+  for (let i = 0; i < tempos.length; i++) {
+    temposRestantes.push(calculaTempo(tempos[i]));
+  }
+
   for (let i = 0; i < contadores.length; i++) {
     // Atualiza o conteúdo dos elementos `span` dentro do contador
     document.getElementById("dias" + i).textContent = temposRestantes[i][0];
@@ -68,20 +57,5 @@ function atualizaCronometro() {
   }
 }
 
-    
-    calculaTempo(tempos[0]);
-  for (let i = 0; i < tempos.length; i++) {
-    temposRestantes[i] = calculaTempo(tempos[i]);
-  }
-
-  for (let i = 0; i < contadores.length; i++) {
-    // contadores[i].textContent = temposRestantes[i];
-  }
-}
-
-function comecaCronometro() {
-  atualizaCronometro();
-  setInterval(atualizaCronometro, 1000);
-}
-
-comecaCronometro();
+atualizaCronometro();
+setInterval(atualizaCronometro, 1000);
